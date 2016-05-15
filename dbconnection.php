@@ -1,13 +1,13 @@
 <?php
-$dbhost = 'localhost:3036';
-$dbuser = 'guest';
-$dbpass = 'guest123';
+$host = 'localhost';
+$user = 'root';
+$pass = '';
 $db = 'BoatLocator';
-$conn = mysqli_connect($dbhost,$dbuser,$dbpass,$db);
-if(! $conn )
+$connection = mysqli_connect($host,$user,$pass,$db);
+if(! $connection )
 {
     die('Could not connect: ' . mysqli_error());
 }
 echo 'Connected successfully';
-mysqli_close($conn);
+//mysqli_close($conn);
 ?>
