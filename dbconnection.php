@@ -3,11 +3,13 @@ $host = 'localhost';
 $user = 'root';
 $pass = '';
 $db = 'BoatLocator';
-$connection = mysqli_connect($host,$user,$pass,$db);
-if(! $connection )
+$connection = new mysqli($host,$user,$pass,$db);
+
+if($connection->connect_error )
 {
     die('Could not connect: ' . mysqli_error());
 }
-echo 'Connected successfully';
-//mysqli_close($conn);
+else {
+    echo 'Connected successfully';
+}//mysqli_close($conn);
 ?>
