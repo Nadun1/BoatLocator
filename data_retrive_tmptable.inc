@@ -9,12 +9,15 @@ class data_retrive_tmptable
 
 
 
-    public $tbl_name="10007";
+    public $tbl_name="10001";
     public $return_arr = array();
+
     function get_data(){
         $connection = mysqli_connect($this->host, $this->user,$this->pass,$this->db );
         $sect_data_query = "SELECT `latitude`,`longitude` FROM `$this->tbl_name`";
+
         if ($result = mysqli_query($connection,$sect_data_query)) {
+
             while ($row = mysqli_fetch_assoc($result)) {
                 $row_array['lat'] = floatval($row['latitude']);
                 $row_array['lng'] = floatval($row['longitude']);

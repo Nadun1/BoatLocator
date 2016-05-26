@@ -4,7 +4,7 @@ include "dbconnection.php";
  * we can catch them using get or post as our wish.
  * below ones are set of test data
  */
-$boat_id="10008";
+$boat_id="10001";
 $boat_idd="10084";
 $latitude=-33.89192157947345;
 $longitude=151.13604068756104;
@@ -25,11 +25,22 @@ boat_id INT NOT NULL PRIMARY KEY,
 if($connection ->query($query_crt_tble)=== TRUE){
     echo "Table create successfully";
 }
-$query_data_insert= "INSERT INTO `$boat_id` (`boat_id`,`latitude`,`longitude`,`battery_state`) VALUES ('$boat_idd','$latitude','$longitude','$battery_state')";
+$x=[6.905415,79.731430,6.967155,79.516573,7.157937,79.318679,7.343031,79.041627,7.645745,79.058589,7.993041,79.081206,8.289689,79.052935,8.468690,79.296062,8.268905,78.946161,8.533339,79.138638,8.728633,79.146868,8.364384,78.568391,8.126669,78.549914,7.870512,78.198856,7.403536,78.087996,6.853521,78.097234,5.963008,78.411339,5.976790,79.210457,6.229405,79.737044,6.504846,79.820189];
 
-if($connection->query($query_data_insert)=== TRUE){
-    echo "successfully inserted data";
+
+for($i=0;$i<39;$i+1){
+
+    $y=intval($i)+1;
+    echo $i."<br>";
+    echo $y."<br>";
+
+    $boat_idd=$boat_idd+1;
+    $query_data_insert= "INSERT INTO `$boat_id` (`boat_id`,`latitude`,`longitude`,`battery_state`) VALUES ('$boat_idd','$x[$i]','$x[$y]',' $battery_state')";
+    //$result = mysqli_query($connection,$query_data_insert);
+    $connection->query($query_data_insert);
+    $i=intval($y)+1;
 }
+
 
 
 
