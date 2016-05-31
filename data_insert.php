@@ -4,8 +4,8 @@ include "dbconnection.php";
  * we can catch them using get or post as our wish.
  * below ones are set of test data
  */
-$boat_id="10001";
-$boat_idd="10084";
+$boat_id="10002";
+$boat_idd="1";
 $latitude=-33.89192157947345;
 $longitude=151.13604068756104;
 $battery_state="56%";
@@ -40,7 +40,6 @@ for($i=0;$i<39;$i+1){
     $connection->query($query_data_insert);
     $i=intval($y)+1;
 }
-
 
 
 

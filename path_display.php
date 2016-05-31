@@ -36,7 +36,7 @@ $hello =new data_retrive_tmptable();
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 5,
             center: {lat:8.728633,lng:79.146868},
-            mapTypeId: google.maps.MapTypeId.TERRAIN
+            mapTypeId: google.maps.MapTypeId.MAP
         });
 
         var flightPlanCoordinates = xx;
@@ -47,23 +47,45 @@ $hello =new data_retrive_tmptable();
             strokeOpacity: 1.0,
             strokeWeight: 2
         });
+
+        var kmlLayer = new google.maps.KmlLayer();
+        //var kmlUrl = 'https://sites.google.com/site/boatlocator1234/xyz-kml/regions_new.kml';
+       //var kmlUrl ='https://sites.google.com/site/boatlocator1234/xyz-kml/Maritime_boundaries_v3.kml';
+        var kmlUrl ='https://sites.google.com/site/boatlocator1234/xyz-kml/new2.kml';
+        var kmlOptions = {
+            suppressInfoWindows: true,
+            preserveViewport: false,
+            map: map
+        };
+        var kmlLayer = new google.maps.KmlLayer(kmlUrl, kmlOptions);
         flightPath.setMap(map);
 
-        var te =1;
-        if(te ==1) {
+
             for (var i = 0; i < xx.length; i++) {
                 if(i==0 || i==xx.length-1) {
                     new google.maps.Marker({
                         map: map,
-
                         position: xx[i],
                         strokeWeight: 1,
                         strokeColor: '#000000',
                         title: "Point "
                     });
                 }
+                new google.maps.Marker({
+                    position: xx[i],
+                    map: map,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: '#ffffff',
+                        fillOpacity: .2,
+                        strokeColor: 'white',
+                        strokeWeight: .5,
+                        scale: 5
+                    }
+                });
             }
-        }
+
+
     }
 
 </script>
