@@ -9,12 +9,12 @@ class data_retrive_tmptable
 
 
 
-    public $tbl_name="10001";
+    //public $tbl_name=10001;
     public $return_arr = array();
 
-    function get_data(){
+    function get_data($tbl_name){
         $connection = mysqli_connect($this->host, $this->user,$this->pass,$this->db );
-        $sect_data_query = "SELECT `latitude`,`longitude` FROM `$this->tbl_name`";
+        $sect_data_query = "SELECT `latitude`,`longitude` FROM `$tbl_name`";
 
         if ($result = mysqli_query($connection,$sect_data_query)) {
 
@@ -26,7 +26,14 @@ class data_retrive_tmptable
             }
         }
 
-        echo json_encode($this->return_arr);
+        return json_encode($this->return_arr);
     }
 }
+/* <?php
+$tbl="10001";
+include "data_retrive_tmptable.inc";
+$hello =new data_retrive_tmptable();
+$hello2 = array();
+$hello2 = $hello->get_data($tbl);
+?>*/
 ?>
