@@ -11,25 +11,44 @@
             padding: 0;
         }
         #map {
-            height: 80%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
-<div id="map"></div>
-
-
 <?php
-$tbl="10002";
 include "data_retrive_tmptable.inc";
 $hello =new data_retrive_tmptable();
-$data = $hello->get_data($tbl);
+if(isset($_POST['submit'])) {
+    $tbl = $_POST['tmp_table'];
+    $data = $hello->get_data($tbl);
+}
+else{
+    $data = null;
+}
 ?>
 
+<form action="#" method="post">
+    <label>Select Boat - </label>
+    <select name = "tmp_table">
+        <option value="null">null</option>
+        <option value="10001">10001</option>
+        <option value="10002">10002</option>
+
+    </select>
+
+    <input type="submit" name="submit" value="Show Path" />
+</form>
 
 
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+<br><br>
+
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2eBCG0HVHPpbpiuOzU2JVxB_tt85l9_c "></script>
 <script src="final_path_genarate_from_temp_table.js"></script>
+
+
 <script>
 
     var path = ('<?php echo $data; ?>') ;
@@ -41,4 +60,5 @@ $data = $hello->get_data($tbl);
 
 
 </body>
+
 </html>

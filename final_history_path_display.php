@@ -11,23 +11,29 @@
             padding: 0;
         }
         #map {
-            height: 80%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
+<label>Select Boat - </label>
+<select>
+    <option value="10001">10001</option>
+    <option value="10002">10002</option>
+</select>
+<br><br>
 <div id="map"></div>
 
 
 <?php
-include "final_create_jsonArray__journy_table.inc";
-$hello =new path_history();
-$par1 = "TEST";
-$par2 = "2016-06-4";
-$data =  ($hello->history($par1,$par2));
+    include "final_create_jsonArray__journy_table.inc";
+    $hello =new path_history();
+    $par1 = "TEST";
+    $par2 = "2016-06-4";
+    $data =  ($hello->history($par1,$par2));
 ?>
 
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2eBCG0HVHPpbpiuOzU2JVxB_tt85l9_c "></script>
 <script src="final_path_genarate_from_journy_table.js"></script>
 <script>
 
@@ -37,7 +43,7 @@ $data =  ($hello->history($par1,$par2));
 
 
 
-   // google.maps.event.addDomListener(window, 'load', mymap());
+    // google.maps.event.addDomListener(window, 'load', mymap());
 </script>
 
 

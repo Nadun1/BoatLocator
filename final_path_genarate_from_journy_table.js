@@ -43,7 +43,7 @@ function extract_LatLon(json_array){
         }
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 7,
+            zoom: 20,
             center:google_path[1],//new google.maps.LatLng(lat, lng),//{lat:8.728633,lng:79.146868}, //pointt,
             mapTypeId: google.maps.MapTypeId.MAP
         });
