@@ -4,23 +4,19 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Simple Polylines</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #map {
-            height: 100%;
-        }
-    </style>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        height: 100%;
+    }
+</style>
 </head>
 <body>
-<label>Select Boat - </label>
-<select>
-    <option value="10001">10001</option>
-    <option value="10002">10002</option>
-</select>
+
 <br><br>
 <div id="map"></div>
 
@@ -28,7 +24,7 @@
 <?php
     include "final_create_jsonArray__journy_table.inc";
     $hello =new path_history();
-    $par1 = "TEST";
+    $par1 = "test1";
     $par2 = "2016-06-4";
     $data =  ($hello->history($par1,$par2));
 ?>
